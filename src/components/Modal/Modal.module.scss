@@ -1,0 +1,17 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: #ffffff;
+  z-index: 1200;
+  overflow-y: auto;
+
+  @media screen and (min-width: 1024px) {
+    background-color: rgba(18, 20, 23, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

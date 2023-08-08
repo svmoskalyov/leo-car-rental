@@ -1,0 +1,109 @@
+.cardItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardWrapper {
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 1024px) {
+    width: 461px;
+  }
+}
+
+.img {
+  margin: 0 auto;
+  width: 461px;
+  height: 248px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.title {
+  margin-top: 14px;
+  margin-bottom: 4px;
+  padding-left: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #121417;
+}
+
+.titleAccent {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3470ff;
+}
+
+.cartList {
+  width: 277px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cartListItem {
+  margin-top: 4px;
+  margin-right: 3px;
+  padding-right: 6px;
+  padding-left: 3px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(18, 20, 23, 0.5);
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+}
+
+.cartListItem:last-child {
+  border: none;
+}
+
+.description {
+  margin-top: 14px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #121417;
+}
+
+.subTitle {
+  padding-top: 24px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #121417;
+}
+
+.rentalList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.rentalListItem {
+  display: flex;
+  padding: 7px 14px;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 35px;
+  color: #363535;
+  background: #f9f9f9;
+}
+
+.rentalListSpan {
+  margin-left: 2px;
+  font-weight: 600;
+  color: #3470ff;
+}
+
+.btnRental {
+  margin: 0;
+  width: 168px;
+}
+
+.btnRentalTel {
+  width: 168px;
+  border-radius: 12px;
+}

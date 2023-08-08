@@ -1,0 +1,153 @@
+.cardItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 274px;
+  height: 426px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardItem:hover,
+.cardItem:focus {
+  -webkit-box-shadow: 0px 2px 22px 2px rgba(0, 0, 0, 0.26);
+  -moz-box-shadow: 0px 2px 22px 2px rgba(0, 0, 0, 0.26);
+  box-shadow: 0px 2px 22px 2px rgba(0, 0, 0, 0.26);
+  transform: scale(1.02);
+}
+
+.img {
+  width: 274px;
+  height: 268px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.chekboxHeart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  border-radius: 50%;
+  user-select: none;
+  cursor: pointer;
+}
+
+.chekboxHeart input {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(
+    1px 1px 1px 1px
+  ); /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(
+    1px,
+    1px,
+    1px,
+    1px
+  ); /*maybe deprecated but we need to support legacy browsers */
+  clip-path: inset(
+    50%
+  ); /*modern browsers, clip-path works inwards from each corner*/
+  white-space: nowrap; /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+}
+
+.chekboxHeart input:hover ~ .heart,
+.chekboxHeart input:focus ~ .heart {
+  color: #3470ff;
+}
+
+.chekboxHeart input:checked ~ .heart {
+  color: #3470ff;
+  fill: #3470ff;
+}
+
+.heart {
+  width: 18px;
+  height: 18px;
+  color: #ffffff;
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  padding-right: 10px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-left: 3px;
+  color: #121417;
+}
+
+.titleAccent {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #3470ff;
+}
+
+.cartList {
+  display: flex;
+  flex-wrap: wrap;
+  height: 40px;
+}
+
+.cartListItem {
+  margin-right: 3px;
+  margin-top: 4px;
+  padding-right: 6px;
+  padding-left: 3px;
+  height: 18px;
+  font-size: 12px;
+  line-height: 18px;
+  border-right: 1px solid rgba(18, 20, 23, 0.1);
+  color: rgba(18, 20, 23, 0.5);
+}
+
+.cartListItem:last-child {
+  border: none;
+}
+
+.itemDetailsWrapper {
+  position: relative;
+  padding: 40px;
+  border-radius: 24px;
+  background: #fff;
+}
+
+.btnModalCloseWrapper {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  margin: 0;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+}
+
+.btnModalClose {
+  width: 100%;
+  height: 100%;
+}
+
+.btnModalCloseWrapper:hover,
+.btnModalCloseWrapper:focus-visible {
+  background-color: transparent;
+  color: #0b44cd;
+}
