@@ -12,7 +12,7 @@ export const CarsList = ({ catalog }) => {
         <Await resolve={catalog}>
           {resolvedCars =>
             resolvedCars?.map(el => {
-              return <CarsListItem key={el.id} {...el} />;
+              return <CarsListItem key={el.carId} {...el} />;
             })
           }
         </Await>

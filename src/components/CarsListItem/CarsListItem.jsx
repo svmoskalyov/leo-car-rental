@@ -10,7 +10,7 @@ import s from './CarsListItem.module.scss';
 
 export const CarsListItem = el => {
   const {
-    id,
+    carId,
     year,
     make,
     model,
@@ -21,7 +21,7 @@ export const CarsListItem = el => {
     rentalCompany,
     address,
     mileage,
-    isFav,
+    // isFav,
   } = el;
 
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ export const CarsListItem = el => {
 
   return (
     <>
-      <li key={id} className={s.cardItem}>
+      <li key={carId} className={s.cardItem}>
         <div>
           <img
             className={s.img}
@@ -48,8 +48,8 @@ export const CarsListItem = el => {
             <input
               type="checkbox"
               name="status"
-              checked={isFav}
-              onChange={() => dispatch(updateCarStatus({ id, isFav: !isFav }))}
+              // checked={isFav}
+              // onChange={() => dispatch(updateCarStatus({ id, isFav: !isFav }))}
             />
             <FiHeart className={s.heart} />
           </label>

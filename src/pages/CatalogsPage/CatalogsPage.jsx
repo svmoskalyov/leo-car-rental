@@ -2,10 +2,11 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCars,
-  selectPage,
+  // selectPage,
   selectError,
   selectIsLoading,
   selectTotalCars,
+  selectStartId,
 } from 'redax/cars/carsSelectors';
 import { getCars, getTotalCars } from 'redax/cars/carsOperations';
 import { Button } from 'components/Button/Button';
@@ -19,22 +20,30 @@ export const CatalogsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const catalog = useSelector(selectCars);
+  console.log('🚀 ~ CatalogsPage ~ catalog:', catalog.length);
   const totalCars = useSelector(selectTotalCars);
-  const page = useSelector(selectPage);
+  // const page = useSelector(selectPage);
+  const startId = useSelector(selectStartId);
+  console.log("🚀 ~ CatalogsPage ~ startId:", startId)
+
 
   const onClickLoadMore = () => {
-    dispatch(getCars(page + 1));
+    // dispatch(getCars(page + 1));
+    // console.log(catalog.length + 100);
+
+    // dispatch(getCars(catalog.length + 101));
+    dispatch(getCars(startId + 1));
   };
 
   useEffect(() => {
     if (!initialized.current) {
       initialized.current = true;
       if (catalog.length === 0) {
-        dispatch(getCars(1));
+        dispatch(getCars(startId));
         dispatch(getTotalCars());
       }
     }
-  }, [dispatch, catalog.length]);
+  }, [dispatch, catalog.length, startId]);
 
   return (
     <>
@@ -47,7 +56,7 @@ export const CatalogsPage = () => {
           onClick={onClickLoadMore}
           aria-label="button load more"
         >
-          {isLoading && !error && page !== 0 ? (
+          {isLoading && !error && catalog.length !== 0 ? (
             <Loader name="ThreeDots" />
           ) : (
             ' Load more'

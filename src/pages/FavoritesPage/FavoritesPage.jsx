@@ -20,7 +20,7 @@ export const FavoritesPage = () => {
     if (!initialized.current) {
       initialized.current = true;
       if (favorites.length === 0) {
-        dispatch(getTotalCars());
+        // dispatch(getTotalCars());
       }
     }
   }, [dispatch, favorites.length]);
@@ -28,7 +28,7 @@ export const FavoritesPage = () => {
   return (
     <>
       {isLoading && !error && <Loader name="Hearts" />}
-      <CarsList catalog={favorites} />
+      {/* <CarsList catalog={favorites} /> */}
     </>
   );
 };

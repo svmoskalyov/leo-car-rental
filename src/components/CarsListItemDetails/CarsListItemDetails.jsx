@@ -3,7 +3,7 @@ import s from './CarsListItemDetails.module.scss';
 
 export const CarsListItemDetails = el => {
   const {
-    id,
+    carId,
     year,
     make,
     model,
@@ -20,7 +20,7 @@ export const CarsListItemDetails = el => {
   } = el;
 
   return (
-    <div key={id} className={s.cardItem}>
+    <div key={carId} className={s.cardItem}>
       <div className={s.cardWrapper}>
         <img
           className={s.img}

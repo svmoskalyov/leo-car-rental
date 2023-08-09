@@ -5,7 +5,8 @@ const initialState = {
   items: [],
   favorites: [],
   totalCars: 0,
-  page: 0,
+  // page: 0,
+  startId: 100,
   isLoading: false,
   error: null,
 };
@@ -18,16 +19,17 @@ const carsSlice = createSlice({
       .addCase(getTotalCars.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.totalCars = payload.length;
-        if (state.favorites.length === 0) {
-          state.favorites = payload.filter(el =>
-            el.isFav === true ? el : null,
-          );
-        }
+        // if (state.favorites.length === 0) {
+        //   state.favorites = payload.filter(el =>
+        //     el.isFav === true ? el : null,
+        //   );
+        // }
       })
       .addCase(getCars.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.items = [...state.items, ...payload.data];
-        state.page = payload.pg;
+        state.startId = state.startId + payload.data.length;
+        // state.page = payload.pg;
       })
       .addCase(updateCarStatus.fulfilled, (state, { payload }) => {
         state.isLoading = false;
