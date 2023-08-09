@@ -38,8 +38,8 @@ export const CarsListItemDetails = el => {
         </h2>
 
         <ul className={s.cartList}>
-          <li className={s.cartListItem}>{address.split(',')[1]}</li>
-          <li className={s.cartListItem}>{address.split(',')[2]}</li>
+          <li className={s.cartListItem}>{address?.split(',')[1]}</li>
+          <li className={s.cartListItem}>{address?.split(',')[2]}</li>
           <li className={s.cartListItem}>{rentalCompany}</li>
           <li className={s.cartListItem}>{type}</li>
           <li className={s.cartListItem}>{model}</li>
@@ -48,7 +48,6 @@ export const CarsListItemDetails = el => {
         </ul>
 
         <p className={s.description}>{description}</p>
-
         <p className={s.subTitle}>Accessories and functionalities: </p>
 
         <ul>
@@ -72,17 +71,17 @@ export const CarsListItemDetails = el => {
 
         <ul className={s.rentalList}>
           <li className={s.rentalListItem}>
-            {rentalConditions.split(':')[0]}:
+            {rentalConditions?.split(':')[0]}:
             <span className={s.rentalListSpan}>
               {rentalConditions.split('\n')[0].split(':')[1]}
             </span>
           </li>
           <li className={s.rentalListItem}>
-            {rentalConditions.split('\n')[1]}
+            {rentalConditions?.split('\n')[1]}
             <span className={s.rentalListSpan}></span>
           </li>
           <li className={s.rentalListItem}>
-            {rentalConditions.split('\n')[2]}
+            {rentalConditions?.split('\n')[2]}
             <span className={s.rentalListSpan}></span>
           </li>
           <li className={s.rentalListItem}>
@@ -99,7 +98,9 @@ export const CarsListItemDetails = el => {
       </div>
 
       <a className={s.btnRentalTel} href="tel:+380730000000">
-        <Button className={s.btnRental}>Rental car</Button>
+        <Button className={s.btnRental} aria-label="button car rental">
+          Rental car
+        </Button>
       </a>
     </div>
   );

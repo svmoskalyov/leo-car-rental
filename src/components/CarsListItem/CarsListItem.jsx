@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateCarStatus } from 'redax/cars/carsOperations';
-import { Modal } from 'components/Modal/Modal';
 import { FiHeart } from 'react-icons/fi';
 import { IoClose } from 'react-icons/io5';
+import { setFavorite } from 'redax/cars/carsSlice';
+import { Modal } from 'components/Modal/Modal';
 import { Button } from 'components/Button/Button';
 import { CarsListItemDetails } from 'components/CarsListItemDetails/CarsListItemDetails';
 import s from './CarsListItem.module.scss';
@@ -21,7 +21,7 @@ export const CarsListItem = el => {
     rentalCompany,
     address,
     mileage,
-    // isFav,
+    isFav,
   } = el;
 
   const dispatch = useDispatch();
@@ -48,8 +48,8 @@ export const CarsListItem = el => {
             <input
               type="checkbox"
               name="status"
-              // checked={isFav}
-              // onChange={() => dispatch(updateCarStatus({ id, isFav: !isFav }))}
+              checked={isFav}
+              onChange={() => dispatch(setFavorite({ ...el, isFav: !isFav }))}
             />
             <FiHeart className={s.heart} />
           </label>
@@ -64,8 +64,8 @@ export const CarsListItem = el => {
           </div>
 
           <ul className={s.cartList}>
-            <li className={s.cartListItem}>{address.split(',')[1]}</li>
-            <li className={s.cartListItem}>{address.split(',')[2]}</li>
+            <li className={s.cartListItem}>{address?.split(',')[1]}</li>
+            <li className={s.cartListItem}>{address?.split(',')[2]}</li>
             <li className={s.cartListItem}>{rentalCompany}</li>
             <li className={s.cartListItem}>{type}</li>
             <li className={s.cartListItem}>{model}</li>
@@ -74,14 +74,20 @@ export const CarsListItem = el => {
           </ul>
         </div>
 
-        <Button onClick={toggleModal}>Learn more</Button>
+        <Button onClick={toggleModal} aria-label="button learn more">
+          Learn more
+        </Button>
       </li>
 
       {showModal && (
         <Modal onClose={toggleModal}>
           <div className={s.itemDetailsWrapper}>
             <CarsListItemDetails {...el} />
-            <Button className={s.btnModalCloseWrapper} onClick={toggleModal}>
+            <Button
+              className={s.btnModalCloseWrapper}
+              onClick={toggleModal}
+              aria-label="button modal close"
+            >
               <IoClose className={s.btnModalClose} />
             </Button>
           </div>

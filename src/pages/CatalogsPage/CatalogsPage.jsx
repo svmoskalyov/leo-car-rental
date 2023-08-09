@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCars,
-  // selectPage,
   selectError,
   selectIsLoading,
   selectTotalCars,
@@ -20,19 +19,17 @@ export const CatalogsPage = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const catalog = useSelector(selectCars);
-  console.log('🚀 ~ CatalogsPage ~ catalog:', catalog.length);
   const totalCars = useSelector(selectTotalCars);
-  // const page = useSelector(selectPage);
   const startId = useSelector(selectStartId);
-  console.log("🚀 ~ CatalogsPage ~ startId:", startId)
-
 
   const onClickLoadMore = () => {
-    // dispatch(getCars(page + 1));
-    // console.log(catalog.length + 100);
-
-    // dispatch(getCars(catalog.length + 101));
     dispatch(getCars(startId + 1));
+    setTimeout(() => {
+      window.scrollBy({
+        top: window.innerHeight - 164,
+        behavior: 'smooth',
+      });
+    }, 500);
   };
 
   useEffect(() => {
