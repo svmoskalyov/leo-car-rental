@@ -46,6 +46,7 @@ export const CarsListItem = el => {
 
           <label className={s.chekboxHeart}>
             <input
+              className={'visuallyHidden'}
               type="checkbox"
               name="status"
               checked={isFav}
