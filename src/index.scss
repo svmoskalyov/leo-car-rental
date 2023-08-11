@@ -1,62 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+@import 'sass/resets/normalize';
+@import 'sass/resets/reset.local';
+@import 'sass/resets/typography';
 
-html {
-  box-sizing: border-box;
-  width: 100vw;
-  overflow-x: hidden;
-}
+@import 'sass/utils/variables';
+@import 'sass/utils/functions';
+@import 'sass/utils/breakpoints';
+@import 'sass/utils/helpers';
 
-body {
-  margin: 0;
-  padding: 0;
-  min-width: 320px;
-  min-height: 100vh;
-
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
-  color-scheme: light dark;
-  color: #000000;
-  background-color: #ffffff;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  list-style: none;
-}
-
-p,
-li,
-h1,
-h2,
-h3 {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-button {
-  cursor: pointer;
-}
+@import 'sass/base/base';
