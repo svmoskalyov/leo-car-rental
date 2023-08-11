@@ -1,0 +1,15 @@
+@function getFont($key) {
+  @return map-get($fonts, $key);
+}
+
+@function getFontWeight($key) {
+  @return map-get($fontsWeights, $key);
+}
+
+@function getFontSize($key) {
+  @return map-get($fontsSizes, $key);
+}
+
+@function getColor($key) {
+  @return map-get($colors, $key);
+}
