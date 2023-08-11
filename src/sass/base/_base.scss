@@ -1,0 +1,21 @@
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color-scheme: light dark;
+  color: getColor(defBlack);
+  background-color: getColor(defWhite);
+  font-family: getFont(primary), sans-serif;
+  font-weight: getFontWeight(regular);
+  font-style: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
