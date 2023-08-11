@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+
+$fonts: (
+  'primary': 'Manrope',
+);
+
+$fontsWeights: (
+  'semibold': 600,
+  'medium': 500,
+  'regular': 400,
+);
+
+$fontsSizes: (
+  'big': 24px,
+  'norm': 16px,
+  'med': 14px,
+  'smal': 12px,
+);
+
+$colors: (
+  'primary': #3470ff,
+  'secondory': #121417,
+  'accent': #0b44cd,
+  'bgHeader': #f7f7fb,
+  'navHeader': #2a2a2a,
+  'bgNavActive': #fefefe,
+  'rentalList': #363535,
+  'bgRentalList': #f9f9f9,
+  'defBlack': #000,
+  'defWhite': #fff,
+);
