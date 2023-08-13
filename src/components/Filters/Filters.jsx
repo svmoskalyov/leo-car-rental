@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import carBrands from 'assets/data/brands';
-import carYears from 'assets/data/years.json';
-import { setBrand, setPrice, setYear } from 'redax/filters/filtersSlice';
 import { selectCars, selectFavorites } from 'redax/cars/carsSelectors';
 import {
+  setBrand,
+  setType,
+  setYear,
+  setPrice,
+} from 'redax/filters/filtersSlice';
+import {
   selectFilterBrand,
+  selectFilterType,
   selectFilterYear,
   selectFilterPrice,
   selectFilterChoiced,
 } from 'redax/filters/filterSelectors';
+import carBrands from 'assets/data/brands';
+import carTypes from 'assets/data/types.json';
+import carYears from 'assets/data/years.json';
 import { CarsList } from 'components/CarsList/CarsList';
 import s from './Filters.module.scss';
 
@@ -18,13 +25,11 @@ export const Filters = () => {
   const catalog = useSelector(selectCars);
   const favorites = useSelector(selectFavorites);
   const selBrand = useSelector(selectFilterBrand);
+  const selType = useSelector(selectFilterType);
   const selYear = useSelector(selectFilterYear);
   const selPrice = useSelector(selectFilterPrice);
   const selFilterChoiced = useSelector(selectFilterChoiced);
-  console.log('🚀 ~ Filters ~ selFilterChoiced:', selFilterChoiced);
   const [filteredCars, setFilteredCars] = useState([]);
-
-  // console.log(catalog.map(el=>el.year));
 
   const filterBrand = filteredData => {
     if (selBrand === 'All') {
@@ -40,6 +45,22 @@ export const Filters = () => {
   const handleBrandChange = event => {
     const { value } = event.target;
     dispatch(setBrand(value));
+  };
+
+  const filterType = filteredData => {
+    if (selType === 'All') {
+      return filteredData;
+    }
+    const normalizedType = selType.toLowerCase();
+    const filteredCars = filteredData.filter(
+      car => car.type.toLowerCase() === normalizedType,
+    );
+    return filteredCars;
+  };
+
+  const handleTypeChange = event => {
+    const { value } = event.target;
+    dispatch(setType(value));
   };
 
   const filterYear = filteredData => {
@@ -86,11 +107,11 @@ export const Filters = () => {
     }
 
     let filteredData = filterBrand(catalog);
+    filteredData = filterType(filteredData);
     filteredData = filterYear(filteredData);
     filteredData = filterPrice(filteredData);
-    console.log('🚀 ~ useEffect ~ filteredData:', filteredData);
     setFilteredCars(filteredData);
-  }, [selBrand, selYear, selPrice, favorites]);
+  }, [selBrand, selType, selYear, selPrice, favorites]);
 
   return (
     <>
@@ -104,6 +125,22 @@ export const Filters = () => {
           >
             <option value="All">All</option>
             {carBrands.map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className={s.typeFilter}>
+          <div>Filter by Type:</div>
+          <select
+            className={s.typeInput}
+            value={selType}
+            onChange={handleTypeChange}
+          >
+            <option value="All">All</option>
+            {carTypes.map((el, i) => (
               <option key={i} value={el}>
                 {el}
               </option>
