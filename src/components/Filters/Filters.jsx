@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCars, selectFavorites } from 'redax/cars/carsSelectors';
+import { setFiltersReset } from 'redax/filters/filtersSlice';
 import {
   selectFilterBrand,
   selectFilterType,
@@ -10,9 +11,11 @@ import {
 } from 'redax/filters/filterSelectors';
 import { FiltersSelects } from 'components/FiltersSelects/FiltersSelects';
 import { CarsList } from 'components/CarsList/CarsList';
+import { Button } from 'components/Button/Button';
 import s from './Filters.module.scss';
 
 export const Filters = () => {
+  const dispatch = useDispatch();
   const catalog = useSelector(selectCars);
   const favorites = useSelector(selectFavorites);
   const selBrand = useSelector(selectFilterBrand);
@@ -72,6 +75,10 @@ export const Filters = () => {
     return filteredCars;
   };
 
+  const resetFilters = () => {
+    dispatch(setFiltersReset());
+  };
+
   useEffect(() => {
     if (!selFilterChoiced) {
       return;
@@ -88,6 +95,13 @@ export const Filters = () => {
     <>
       <div className={s.filters}>
         <FiltersSelects />
+        <Button
+          className={s.btnFilter}
+          onClick={resetFilters}
+          aria-label="button reset filters"
+        >
+          Learn more
+        </Button>
       </div>
 
       {selFilterChoiced && <CarsList catalog={filteredCars} />}
