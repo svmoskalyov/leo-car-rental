@@ -8,9 +8,11 @@ import {
   selectStartId,
 } from 'redax/cars/carsSelectors';
 import { getCars, getTotalCars } from 'redax/cars/carsOperations';
+import { selectFilterChoiced } from 'redax/filters/filterSelectors';
 import { Button } from 'components/Button/Button';
 import { CarsList } from 'components/CarsList/CarsList';
 import { Loader } from 'components/Loader/Loader';
+import { Filters } from 'components/Filters/Filters';
 import s from './CatalogsPage.module.scss';
 
 export const CatalogsPage = () => {
@@ -21,6 +23,7 @@ export const CatalogsPage = () => {
   const catalog = useSelector(selectCars);
   const totalCars = useSelector(selectTotalCars);
   const startId = useSelector(selectStartId);
+  const selFilterChoiced = useSelector(selectFilterChoiced);
 
   const onClickLoadMore = () => {
     dispatch(getCars(startId + 1));
@@ -44,8 +47,10 @@ export const CatalogsPage = () => {
 
   return (
     <>
+      <Filters />
+
       {isLoading && !error && totalCars === 0 && <Loader name="Grid" />}
-      <CarsList catalog={catalog} />
+      {!selFilterChoiced && <CarsList catalog={catalog} />}
 
       {catalog.length < totalCars && (
         <Button

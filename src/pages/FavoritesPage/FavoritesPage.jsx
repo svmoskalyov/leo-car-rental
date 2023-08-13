@@ -16,6 +16,8 @@ export const FavoritesPage = () => {
     <>
       {isLoading && !error && <Loader name="Hearts" />}
       <CarsList catalog={favorites} />
+
+      {favorites.length === 0 && <div>No favorites cars </div>}
     </>
   );
 };
