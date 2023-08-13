@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import carBrands from 'assets/data/brands';
-// import carPrice from 'assets/data/price.json';
-import { setBrand, setPrice } from 'redax/filters/filtersSlice';
+import carYears from 'assets/data/years.json';
+import { setBrand, setPrice, setYear } from 'redax/filters/filtersSlice';
 import { selectCars, selectFavorites } from 'redax/cars/carsSelectors';
 import {
   selectFilterBrand,
-  selectFilterChoiced,
+  selectFilterYear,
   selectFilterPrice,
+  selectFilterChoiced,
 } from 'redax/filters/filterSelectors';
 import { CarsList } from 'components/CarsList/CarsList';
 import s from './Filters.module.scss';
@@ -17,11 +18,13 @@ export const Filters = () => {
   const catalog = useSelector(selectCars);
   const favorites = useSelector(selectFavorites);
   const selBrand = useSelector(selectFilterBrand);
+  const selYear = useSelector(selectFilterYear);
   const selPrice = useSelector(selectFilterPrice);
-  console.log('🚀 ~ Filters ~ selPrice:', selPrice);
   const selFilterChoiced = useSelector(selectFilterChoiced);
   console.log('🚀 ~ Filters ~ selFilterChoiced:', selFilterChoiced);
   const [filteredCars, setFilteredCars] = useState([]);
+
+  // console.log(catalog.map(el=>el.year));
 
   const filterBrand = filteredData => {
     if (selBrand === 'All') {
@@ -39,35 +42,41 @@ export const Filters = () => {
     dispatch(setBrand(value));
   };
 
+  const filterYear = filteredData => {
+    if (selYear === 0) {
+      return filteredData;
+    }
+    const filteredCars = filteredData.filter(car => car.year === selYear);
+    return filteredCars;
+  };
+
+  const handleYearChange = event => {
+    const { value } = event.target;
+    dispatch(setYear(Number(value)));
+  };
+
   const filterPrice = filteredData => {
     if (selPrice === 0) {
       return filteredData;
     }
 
-    const filteredCars = filteredData.filter(
-      // v1 (to price)
-      // car => car.rentalPrice.split('$')[1] <= selPrice,
-
-      car => {
-        const carPrice = car.rentalPrice.split('$')[1];
-        if (selPrice === 100) {
-          return 0 <= carPrice && carPrice <= 100;
-        } else if (selPrice === 500) {
-          return 100 <= carPrice && carPrice <= 500;
-        } else if (selPrice === 1000) {
-          return 500 <= carPrice && carPrice <= 1000;
-        } else {
-          return 1000 <= carPrice;
-        }
-      },
-    );
-    console.log('🚀 ~ filterPrice ~ filteredCars:', filteredCars);
+    const filteredCars = filteredData.filter(car => {
+      const carPrice = car.rentalPrice.split('$')[1];
+      if (selPrice === 100) {
+        return 0 <= carPrice && carPrice <= 100;
+      } else if (selPrice === 500) {
+        return 100 <= carPrice && carPrice <= 500;
+      } else if (selPrice === 1000) {
+        return 500 <= carPrice && carPrice <= 1000;
+      } else {
+        return 1000 <= carPrice;
+      }
+    });
     return filteredCars;
   };
 
   const handlePriceChange = event => {
     const { value } = event.target;
-    console.log('🚀 ~ handlePriceChange ~ value:', value);
     dispatch(setPrice(Number(value)));
   };
 
@@ -77,10 +86,11 @@ export const Filters = () => {
     }
 
     let filteredData = filterBrand(catalog);
+    filteredData = filterYear(filteredData);
     filteredData = filterPrice(filteredData);
     console.log('🚀 ~ useEffect ~ filteredData:', filteredData);
     setFilteredCars(filteredData);
-  }, [selBrand, selPrice, favorites]);
+  }, [selBrand, selYear, selPrice, favorites]);
 
   return (
     <>
@@ -101,6 +111,22 @@ export const Filters = () => {
           </select>
         </div>
 
+        <div className={s.yearFilter}>
+          <div>Filter by Year:</div>
+          <select
+            className={s.yearInput}
+            value={selYear}
+            onChange={handleYearChange}
+          >
+            <option value={0}>All</option>
+            {carYears.map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className={s.priceFilter}>
           <div>Filter by Price:</div>
           <select
@@ -108,14 +134,7 @@ export const Filters = () => {
             value={selPrice}
             onChange={handlePriceChange}
           >
-            {/* <option value={0}>$ 0</option>
-            {carPrice.map((el, i) => (
-              <option key={i} value={el}>
-                $ {el}
-              </option>
-            ))} */}
-
-            <option value={0}>$ 0</option>
+            <option value={0}>All</option>
             <option value={100}>$ 0 - $ 100</option>
             <option value={500}>$ 100 - $ 500</option>
             <option value={1000}>$ 500 - $ 1000</option>
