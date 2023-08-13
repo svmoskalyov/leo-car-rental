@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectCars, selectFavorites } from 'redax/cars/carsSelectors';
-import {
-  setBrand,
-  setType,
-  setYear,
-  setPrice,
-} from 'redax/filters/filtersSlice';
 import {
   selectFilterBrand,
   selectFilterType,
@@ -14,14 +8,11 @@ import {
   selectFilterPrice,
   selectFilterChoiced,
 } from 'redax/filters/filterSelectors';
-import carBrands from 'assets/data/brands';
-import carTypes from 'assets/data/types.json';
-import carYears from 'assets/data/years.json';
+import { FiltersSelects } from 'components/FiltersSelects/FiltersSelects';
 import { CarsList } from 'components/CarsList/CarsList';
 import s from './Filters.module.scss';
 
 export const Filters = () => {
-  const dispatch = useDispatch();
   const catalog = useSelector(selectCars);
   const favorites = useSelector(selectFavorites);
   const selBrand = useSelector(selectFilterBrand);
@@ -42,11 +33,6 @@ export const Filters = () => {
     return filteredCars;
   };
 
-  const handleBrandChange = event => {
-    const { value } = event.target;
-    dispatch(setBrand(value));
-  };
-
   const filterType = filteredData => {
     if (selType === 'All') {
       return filteredData;
@@ -58,22 +44,12 @@ export const Filters = () => {
     return filteredCars;
   };
 
-  const handleTypeChange = event => {
-    const { value } = event.target;
-    dispatch(setType(value));
-  };
-
   const filterYear = filteredData => {
     if (selYear === 0) {
       return filteredData;
     }
     const filteredCars = filteredData.filter(car => car.year === selYear);
     return filteredCars;
-  };
-
-  const handleYearChange = event => {
-    const { value } = event.target;
-    dispatch(setYear(Number(value)));
   };
 
   const filterPrice = filteredData => {
@@ -96,11 +72,6 @@ export const Filters = () => {
     return filteredCars;
   };
 
-  const handlePriceChange = event => {
-    const { value } = event.target;
-    dispatch(setPrice(Number(value)));
-  };
-
   useEffect(() => {
     if (!selFilterChoiced) {
       return;
@@ -116,68 +87,7 @@ export const Filters = () => {
   return (
     <>
       <div className={s.filters}>
-        <div className={s.brandFilter}>
-          <div>Filter by Brand:</div>
-          <select
-            className={s.brandInput}
-            value={selBrand}
-            onChange={handleBrandChange}
-          >
-            <option value="All">All</option>
-            {carBrands.map((el, i) => (
-              <option key={i} value={el}>
-                {el}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className={s.typeFilter}>
-          <div>Filter by Type:</div>
-          <select
-            className={s.typeInput}
-            value={selType}
-            onChange={handleTypeChange}
-          >
-            <option value="All">All</option>
-            {carTypes.map((el, i) => (
-              <option key={i} value={el}>
-                {el}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className={s.yearFilter}>
-          <div>Filter by Year:</div>
-          <select
-            className={s.yearInput}
-            value={selYear}
-            onChange={handleYearChange}
-          >
-            <option value={0}>All</option>
-            {carYears.map((el, i) => (
-              <option key={i} value={el}>
-                {el}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className={s.priceFilter}>
-          <div>Filter by Price:</div>
-          <select
-            className={s.priceInput}
-            value={selPrice}
-            onChange={handlePriceChange}
-          >
-            <option value={0}>All</option>
-            <option value={100}>$ 0 - $ 100</option>
-            <option value={500}>$ 100 - $ 500</option>
-            <option value={1000}>$ 500 - $ 1000</option>
-            <option value={1001}>$ 1000 +</option>
-          </select>
-        </div>
+        <FiltersSelects />
       </div>
 
       {selFilterChoiced && <CarsList catalog={filteredCars} />}

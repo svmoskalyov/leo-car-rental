@@ -11,20 +11,14 @@ const filtersSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
-    setBrand(state, { payload }) {
-      state.brand = payload;
-    },
-    setPrice(state, { payload }) {
-      state.price = payload;
-    },
-    setYear(state, { payload }) {
-      state.year = payload;
-    },
-    setType(state, { payload }) {
-      state.type = payload;
+    setFilter(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      };
     },
   },
 });
 
-export const { setBrand, setType, setYear, setPrice } = filtersSlice.actions;
+export const { setFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;
