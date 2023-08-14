@@ -1,8 +1,10 @@
+@import '../../sass/utils/functions';
+
 .notFavCar {
   padding: 30px;
   text-align: center;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
-  color: #121417;
+  color: getColor(secondory);
 }

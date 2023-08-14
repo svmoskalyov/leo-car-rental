@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .cardItem {
   position: relative;
   display: flex;
@@ -25,17 +27,17 @@
   margin-top: 14px;
   margin-bottom: 4px;
   padding-left: 3px;
-  font-size: 16px;
-  font-weight: 500;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
-  color: #121417;
+  color: getColor(secondory);
 }
 
 .titleAccent {
-  font-size: 16px;
-  font-weight: 500;
+  font-size: getFontSize(norm);
+  font-weight: getFontWeight(medium);
   line-height: 24px;
-  color: #3470ff;
+  color: getColor(primary);
 }
 
 .cartList {
@@ -50,7 +52,7 @@
   padding-right: 6px;
   padding-left: 3px;
   height: 18px;
-  font-size: 12px;
+  font-size: getFontSize(smal);
   line-height: 18px;
   color: rgba(18, 20, 23, 0.5);
   border-right: 1px solid rgba(18, 20, 23, 0.1);
@@ -62,17 +64,17 @@
 
 .description {
   margin-top: 14px;
-  font-size: 14px;
+  font-size: getFontSize(med);
   line-height: 20px;
-  color: #121417;
+  color: getColor(secondory);
 }
 
 .subTitle {
   padding-top: 24px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: getFontSize(med);
+  font-weight: getFontWeight(medium);
   line-height: 20px;
-  color: #121417;
+  color: getColor(secondory);
 }
 
 .rentalList {
@@ -85,17 +87,17 @@
 .rentalListItem {
   display: flex;
   padding: 7px 14px;
-  font-size: 12px;
+  font-size: getFontSize(smal);
   line-height: 18px;
   border-radius: 35px;
-  color: #363535;
-  background: #f9f9f9;
+  color: getColor(rentalList);
+  background: getColor(bgRentalList);
 }
 
 .rentalListSpan {
   margin-left: 2px;
-  font-weight: 600;
-  color: #3470ff;
+  font-weight: getFontWeight(semibold);
+  color: getColor(primary);
 }
 
 .btnRental {

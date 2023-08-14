@@ -1,3 +1,5 @@
+@import '../../sass/utils/functions';
+
 .page {
   width: 100vw;
   height: calc(100vh - 60px);
@@ -9,9 +11,9 @@
 
 .title {
   padding: 100px 15px 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: getFontSize(big);
+  font-weight: getFontWeight(semibold);
+  color: getColor(defWhite);
   text-shadow: 0 5px 5px rgba(255, 255, 255, 0.3);
   text-align: center;
 
@@ -21,7 +23,7 @@
 
   @media screen and (min-width: 1024px) {
     padding-top: 40px;
-    font-size: 38px;
+    font-size: getFontSize(mega);
   }
 }
 
@@ -29,22 +31,22 @@
   margin: 0 auto;
   padding: 15px 15px 0;
   max-width: 620px;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: getFontSize(med);
+  font-weight: getFontWeight(medium);
   text-align: center;
 
   @media screen and (max-height: 680px) and (orientation: landscape) {
-    background: #000000;
+    background: getColor(defBlack);
     background: radial-gradient(
       circle farthest-corner at center center,
-      #000000 29%,
-      #ffffff 36%
+      getColor(defBlack) 29%,
+      getColor(defWhite) 36%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   @media screen and (min-width: 1024px) {
-    font-size: 16px;
+    font-size: getFontSize(norm);
   }
 }
