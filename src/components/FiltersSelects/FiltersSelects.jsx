@@ -40,67 +40,75 @@ export const FiltersSelects = () => {
 
   return (
     <>
-      <div className={s.brandFilter}>
-        <div>Filter by Brand:</div>
-        <select
-          className={s.brandInput}
-          value={selBrand}
-          onChange={handleBrandChange}
-        >
-          <option value="All">All</option>
-          {carBrands.map((el, i) => (
-            <option key={i} value={el}>
-              {el}
-            </option>
-          ))}
-        </select>
+      <div className={s.selectBox}>
+        <div className={s.selectTitle}>Car brand</div>
+        <div className={s.selectWrapper}>
+          <select
+            className={s.selectInput}
+            value={selBrand}
+            onChange={handleBrandChange}
+          >
+            <option value="All">All</option>
+            {carBrands.map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className={s.typeFilter}>
-        <div>Filter by Type:</div>
-        <select
-          className={s.typeInput}
-          value={selType}
-          onChange={handleTypeChange}
-        >
-          <option value="All">All</option>
-          {carTypes.map((el, i) => (
-            <option key={i} value={el}>
-              {el}
-            </option>
-          ))}
-        </select>
+      <div className={s.selectBox}>
+        <div className={s.selectTitle}>Body type</div>
+        <div className={s.selectWrapper}>
+          <select
+            className={s.selectInput}
+            value={selType}
+            onChange={handleTypeChange}
+          >
+            <option value="All">All</option>
+            {carTypes.map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className={s.yearFilter}>
-        <div>Filter by Year:</div>
-        <select
-          className={s.yearInput}
-          value={selYear}
-          onChange={handleYearChange}
-        >
-          <option value={0}>All</option>
-          {carYears.map((el, i) => (
-            <option key={i} value={el}>
-              {el}
-            </option>
-          ))}
-        </select>
+      <div className={s.selectBox}>
+        <div className={s.selectTitle}>Year</div>
+        <div className={s.selectWrapper}>
+          <select
+            className={s.selectInput}
+            value={selYear}
+            onChange={handleYearChange}
+          >
+            <option value={0}>All</option>
+            {carYears.map((el, i) => (
+              <option key={i} value={el}>
+                {el}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
-      <div className={s.priceFilter}>
-        <div>Filter by Price:</div>
-        <select
-          className={s.priceInput}
-          value={selPrice}
-          onChange={handlePriceChange}
-        >
-          <option value={0}>All</option>
-          <option value={100}>$ 0 - $ 100</option>
-          <option value={500}>$ 100 - $ 500</option>
-          <option value={1000}>$ 500 - $ 1000</option>
-          <option value={1001}>$ 1000 +</option>
-        </select>
+      <div className={s.selectBox}>
+        <div className={s.selectTitle}>Price per day</div>
+        <div className={s.selectWrapper}>
+          <select
+            className={s.selectInput}
+            value={selPrice}
+            onChange={handlePriceChange}
+          >
+            <option value={0}>All</option>
+            <option value={100}>$ 0 - $ 100</option>
+            <option value={500}>$ 100 - $ 500</option>
+            <option value={1000}>$ 500 - $ 1000</option>
+            <option value={1001}>$ 1000 +</option>
+          </select>
+        </div>
       </div>
     </>
   );

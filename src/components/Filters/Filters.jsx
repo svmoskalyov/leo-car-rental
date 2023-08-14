@@ -100,7 +100,7 @@ export const Filters = () => {
           onClick={resetFilters}
           aria-label="button reset filters"
         >
-          Learn more
+          Reset Filters
         </Button>
       </div>
 

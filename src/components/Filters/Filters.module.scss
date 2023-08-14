@@ -1,13 +1,13 @@
 .filters {
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // // height: 100vh;
-  // font-size: 20px;
-  outline: 1px solid tomato;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 50px;
 }
 
-.btnFilter{
-  
+.btnFilter {
+  margin: 0;
+  width: 160px;
 }

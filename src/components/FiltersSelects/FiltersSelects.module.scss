@@ -1,30 +1,31 @@
-.brandFilter {
-  // display: flex;
-  // margin: 15px;
-  outline: 1px solid green;
-
-  // position: relative;
-  // display: block;
-  // width: 10em;
-  // height: 3em;
-  // line-height: 3;
-  // overflow: hidden;
-  // border-radius: 0.25em;
-  // padding-bottom: 10px;
+.selectBox {
+  display: block;
+  width: 160px;
 }
 
-.brandInput {
-  // width: 80px;
-  // margin: 0 10px;
-  // height: 30px;
-  outline: 1px solid violet;
+.selectTitle {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #8a8a89;
+}
 
-  // appearance: none;
-  // background: yellow;
-  // width: 100%;
-  // height: 100%;
-  // color: black;
-  // cursor: pointer;
-  // border: 2px dashed orange;
-  // border-radius: 4px;
+.selectWrapper {
+  border-radius: 12px;
+  background: #f7f7fb;
+  overflow: hidden;
+}
+
+.selectInput {
+  padding: 12px;
+  width: 180px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #121417;
+  background: transparent;
+  border: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
 }
