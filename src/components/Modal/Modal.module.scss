@@ -1,4 +1,5 @@
 @import '../../sass/utils/functions';
+@import '../../sass/utils/breakpoints';
 
 .backdrop {
   position: fixed;
@@ -10,7 +11,7 @@
   z-index: 1200;
   overflow-y: auto;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: $desktop) {
     background-color: rgba(18, 20, 23, 0.5);
     display: flex;
     justify-content: center;

@@ -10,12 +10,12 @@
   font-size: getFontSize(med);
   font-weight: getFontWeight(medium);
   line-height: 18px;
-  color: #8a8a89;
+  color: getColor(selectTitle);
 }
 
 .selectWrapper {
   border-radius: 12px;
-  background: #f7f7fb;
+  background: getColor(bgHeader);
   overflow: hidden;
 }
 
