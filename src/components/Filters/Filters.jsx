@@ -104,9 +104,11 @@ export const Filters = () => {
         </Button>
       </div>
 
-      {selFilterChoiced && <CarsList catalog={filteredCars} />}
+      {selFilterChoiced && filteredCars.length !== 0 && (
+        <CarsList catalog={filteredCars} />
+      )}
       {selFilterChoiced && filteredCars.length === 0 && (
-        <div>No cars matching the filter</div>
+        <div className={s.notFound}>No cars matching the filter</div>
       )}
     </>
   );
