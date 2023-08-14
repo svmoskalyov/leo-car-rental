@@ -6,6 +6,7 @@ import {
 } from 'redax/cars/carsSelectors';
 import { Loader } from 'components/Loader/Loader';
 import { CarsList } from 'components/CarsList/CarsList';
+import s from './FavoritesPage.module.scss';
 
 export const FavoritesPage = () => {
   const isLoading = useSelector(selectIsLoading);
@@ -15,9 +16,11 @@ export const FavoritesPage = () => {
   return (
     <>
       {isLoading && !error && <Loader name="Hearts" />}
-      <CarsList catalog={favorites} />
+      {favorites.length !== 0 && <CarsList catalog={favorites} />}
 
-      {favorites.length === 0 && <div>No favorites cars </div>}
+      {favorites.length === 0 && (
+        <div className={s.notFavCar}>No favorites cars </div>
+      )}
     </>
   );
 };
