@@ -1,12 +1,12 @@
-# 🚘 [CAR RENTAL](https://car-rental-everiday.netlify.app/)
+# 🚘 [LEO CAR RENTAL](https://leo-car-rental.vercel.app/)
 
-### 📝 About website
-On the website, you can choose a car based on a photo and description, if you click the button Learn more, you will see detailed information about the car. You can add a car you like to your favorites and view the added cars on the favorites tab.
+### 📝 About the website
+On the site, you can choose a car by photo and description, if you click the Learn More button, you will see detailed information about the vehicle. You can add the car you like to your favorites by clicking on the heart and viewing the added vehicles in the favorites tab. The site also has filters by car brand, car type, year, and price - with these filters, you can choose a Soyuz car more specifically.
 
 ### 🛠 Technologies stack
-React, React DOM, React Router, React Icons, Redux, Redux Toolkit, Redux Persist, SASS, JavaScript, HTML, Vite, ESLint, GitHub, and libraries (Axios, etc.)
+HTML, SASS, JavaScript, React, React DOM, React Router, React Icons, React Loader Spinner, Redux, Redux Toolkit, Redux Persist, Axios, Vite, ESLint.
 
 ---
-![image](https://github.com/svmoskalyov/car-rental/assets/107481840/96b89387-3e16-4ec3-8cd9-90d81fdcf5f1)
-![image](https://github.com/svmoskalyov/car-rental/assets/107481840/04ad6884-bdac-4011-a7a7-b24f9d8a279d)
-![image](https://github.com/svmoskalyov/car-rental/assets/107481840/d8b88664-9c54-41e1-9246-44d2cd2c7ea8)
+![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/96fbed55-b7eb-49ee-9868-88c689f1f051)
+![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/8cf48ba1-b74f-4a18-affc-5e3b1c62c1da)
+![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/9a79a15c-5448-4aae-b544-f2567ef028e6)
