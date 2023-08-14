@@ -65,7 +65,6 @@ export const CarsListItem = el => {
           </div>
 
           <ul className={s.cartList}>
-            <li className={s.cartListItem}>{address?.split(',')[1]}</li>
             <li className={s.cartListItem}>{address?.split(',')[2]}</li>
             <li className={s.cartListItem}>{rentalCompany}</li>
             <li className={s.cartListItem}>{type}</li>
