@@ -47,9 +47,8 @@ export const CatalogsPage = () => {
 
   return (
     <>
-      <Filters />
-
       {isLoading && !error && totalCars === 0 && <Loader name="Grid" />}
+      {!isLoading && !error && catalog.length !== 0 && <Filters />}
       {!selFilterChoiced && <CarsList catalog={catalog} />}
 
       {catalog.length < totalCars && (
