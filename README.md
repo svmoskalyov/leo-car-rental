@@ -8,5 +8,9 @@ HTML, SASS, JavaScript, React, React DOM, React Router, React Icons, React Loade
 
 ---
 ![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/96fbed55-b7eb-49ee-9868-88c689f1f051)
+
+---
 ![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/8cf48ba1-b74f-4a18-affc-5e3b1c62c1da)
+
+---
 ![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/9a79a15c-5448-4aae-b544-f2567ef028e6)
