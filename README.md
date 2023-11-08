@@ -3,7 +3,7 @@
 ### 📝 About the website
 On the site, you can choose a car by photo and description, if you click the Learn More button, you will see detailed information about the vehicle. You can add the car you like to your favorites by clicking on the heart and viewing the added vehicles in the favorites tab. The site also has filters by car brand, car type, year, and price - with these filters, you can choose a Soyuz car more specifically.
 
-### 🛠 Technologies stack
+### 🧰 Technologies stack
 HTML, SASS, JavaScript, React, React DOM, React Router, React Icons, React Loader Spinner, Redux, Redux Toolkit, Redux Persist, Axios, Vite, ESLint.
 
 ---
