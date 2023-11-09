@@ -7,10 +7,7 @@ On the site, you can choose a car by photo and description, if you click the Lea
 HTML, SASS, JavaScript, React, React DOM, React Router, React Icons, React Loader Spinner, Redux, Redux Toolkit, Redux Persist, Axios, Vite, ESLint.
 
 ---
-![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/96fbed55-b7eb-49ee-9868-88c689f1f051)
+https://github.com/svmoskalyov/leo-car-rental/assets/107481840/6b929a8c-97c8-48cc-b11e-145f087460af
 
 ---
-![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/8cf48ba1-b74f-4a18-affc-5e3b1c62c1da)
-
----
-![image](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/9a79a15c-5448-4aae-b544-f2567ef028e6)
+![leo-car-rental](https://github.com/svmoskalyov/leo-car-rental/assets/107481840/ac49f397-dbfc-4dc1-b17d-4989a062beb8)
